@@ -22,7 +22,7 @@ public class Char{
     }
 
     public void rain(int speed) {
-        y = (y > 900) ?  0 : (y += speed);
+        y = (y > 900) ?  0 : y + speed;
     }
 
     public void render(GraphicsContext g2) {

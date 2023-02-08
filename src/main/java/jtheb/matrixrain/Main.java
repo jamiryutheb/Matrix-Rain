@@ -2,13 +2,21 @@ package jtheb.matrixrain;
 
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.scene.CacheHint;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,8 +29,8 @@ import java.util.stream.IntStream;
 
 
 public class Main extends Application {
-    static final int width = 800;
-    static final int height = 600;
+    static final int width = 1200;
+    static final int height = 800;
 
     static List<String> list = new ArrayList<>();
 
@@ -30,11 +38,18 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         loadList();
-
         primaryStage.setTitle("Matrix");
-        Group root = new Group();
+        Pane root = new Pane();
+        StackPane holder = new StackPane();
         Canvas canvas = new Canvas(width, height);
         GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        holder.getChildren().add(canvas);
+        root.getChildren().add(holder);
+
+
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
 
 
         CharList[] chArr = IntStream.range(0, 70).mapToObj(i -> new CharList()).toArray(CharList[]::new);
@@ -50,9 +65,7 @@ public class Main extends Application {
 
         }.start();
 
-        root.getChildren().add(canvas);
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+
 
 
     }
