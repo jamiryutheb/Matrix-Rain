@@ -1,23 +1,14 @@
 package jtheb.matrixrain;
 
-
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.scene.CacheHint;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
@@ -26,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.IntStream;
-
 
 public class Main extends Application {
     static final int width = 1200;
@@ -65,18 +55,12 @@ public class Main extends Application {
 
         }.start();
 
-
-
-
     }
 
     public static void main(String[] args) {
         launch(args);
     }
-
-
     public static void loadList() throws FileNotFoundException {
-
 
         String fileName = "character.txt";
         String directory = System.getProperty("user.dir");
@@ -95,6 +79,5 @@ public class Main extends Application {
             System.out.println("File not found in the directory tree.");
             System.exit(0);
         }
-
     }
 }

@@ -1,8 +1,6 @@
 package jtheb.matrixrain;
 
-
 import javafx.scene.canvas.GraphicsContext;
-
 
 public class Char{
 
@@ -11,7 +9,6 @@ public class Char{
     int index;
     int size;
     String text;
-
 
     public Char(int x, int y)  {
         this.size = Main.list.size();
@@ -22,7 +19,11 @@ public class Char{
     }
 
     public void rain(int speed) {
-        y = (y > 900) ?  0 : y + speed;
+        if(y > Main.height){
+            y = -200;
+        }else{
+            y += speed;
+        }
     }
 
     public void render(GraphicsContext g2) {
